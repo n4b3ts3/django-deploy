@@ -1,0 +1,4 @@
+[build-system]
+requires = ["django", "setuptools>=42"]
+build-backend = "setuptools.build_meta"
+

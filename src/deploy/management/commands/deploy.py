@@ -21,7 +21,7 @@ After=network.target
 User=www-data
 Group=www-data
 WorkingDirectory=/var/www/{1}
-ExecStart=/var/www/{1}/venv/bin/gunicorn --access-logfile /tmp/test.log -k uvicorn.workers.UvicornWorker\
+ExecStart=/var/www/{1}/venv/bin/gunicorn --access-logfile {2} -k uvicorn.workers.UvicornWorker\
     --workers 3\
     --bind unix:/run/{0}_django_asgi.sock\
     {2}.asgi:application
@@ -143,7 +143,8 @@ class Command(BaseCommand):
 
     def install_services(self, args, options):
         global service_file, socket_file, nginx_file
-        service_file = service_file.format(settings.DEPLOY_NAME, self.app_name, "www")
+        service_file = service_file.format(settings.DEPLOY_NAME, self.app_name, options["name"] or settings.BASE_DIR.name, 
+                options["log"] or "/tmp/" + settings.DEPLOY_NAME + "_django_asgi")
         socket_file = socket_file.format(settings.DEPLOY_NAME, settings.BASE_DIR.name)
         nginx_file = nginx_file.replace("{0}", settings.DEPLOY_NAME).replace("{1}", 
             self.app_name).replace("{2}", options["host"])
