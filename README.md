@@ -1,3 +1,5 @@
+[![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
 # IMPORTANT
 This package adds a new command to manage.py for your django project, it does requires root access for deployment and also requires you to have nginx and systemctl 
 installed on your system. All this project is free and open source, you can see its code inside of https://github.com/n4b3ts3/django-deploy, DO NOT COPY THIS CODE 
